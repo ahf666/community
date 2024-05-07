@@ -8,8 +8,8 @@ community:
     password: 123456
   alioss:
     endpoint: oss-cn-guangzhou.aliyuncs.com
-    access-key-id: LTAI5tAz4gqh9R1dbEHizSFP
-    access-key-secret: UaKuX8zqYJdK4tZ7jS7bG0BtgV5dMV
+    access-key-id: please input your id
+    access-key-secret: please input your secret
     bucket-name: web-ao666
   redis:
     host: 8.130.128.161
