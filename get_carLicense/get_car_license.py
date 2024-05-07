@@ -19,8 +19,8 @@ from matplotlib import pyplot as plt
 '''
 
 APPId = "448cad51"  # 控制台获取
-APISecret = "YzM0Y2Y1ZTk2NTU4NDZiOTc2ZjBiNTNi"  # 控制台获取
-APIKey = "eafbd6e0b67cb57e0e21f13f6524c664"  # 控制台获取
+APISecret = "xxxx"  # 控制台获取
+APIKey = "xxxx"  # 控制台获取
 
 #########################################
 
