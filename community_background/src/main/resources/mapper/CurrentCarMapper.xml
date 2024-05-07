@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ao666.community_background.server.mapper.CurrentCarMapper">
+
+    <select id="pageUserQuery" resultType="com.ao666.community_background.pojo.vo.CurrentUserCarVO">
+        select * from tb_current_car order by entry_time asc
+    </select>
+
+</mapper>

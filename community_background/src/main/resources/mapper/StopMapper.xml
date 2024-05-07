@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ao666.community_background.server.mapper.StopMapper">
+
+
+    <select id="pageQuery" resultType="com.ao666.community_background.pojo.vo.StopPageVO">
+        select s.id, s.place, s.status, u.name, u.username, u.phone, u.sex, s.car_license, s.rent_month from tb_stop as s
+                left join tb_user as u on s.user_id = u.id
+        <where>
+            <if test="place != null and place != ''">and s.place like concat('%', #{place}, '%')</if>
+            <if test="status == 0 or status == 1">and s.status = #{status}</if>
+            <if test="name != null and name != ''">and u.name like concat('%', #{name}, '%')</if>
+            <if test="carLicense != null and carLicense != ''">and s.car_license like concat('%', #{carLicense}, '%')</if>
+        </where>
+        order by s.place asc
+    </select>
+
+
+</mapper>

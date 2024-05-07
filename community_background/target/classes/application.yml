@@ -1,0 +1,65 @@
+server:
+  port: 8080
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 10MB  		# 设置单个文件最大大小为10MB
+      max-request-size: 100MB  	# 设置多个文件大小为100MB
+  rabbitmq:
+    host: 8.130.128.161
+    port: 5672
+    username: ao666
+    password: 123456
+    virtual-host: /
+  profiles:
+    active: dev
+  main:
+    allow-circular-references: true
+  datasource:
+    druid:
+      driver-class-name: ${community.datasource.driver-class-name}
+      url: jdbc:mysql://${community.datasource.host}:${community.datasource.port}/${community.datasource.database}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+      username: ${community.datasource.username}
+      password: ${community.datasource.password}
+  redis:
+    host: ${community.redis.host}
+    port: ${community.redis.port}
+    password: ${community.redis.password}
+    database: ${community.redis.database}
+
+mybatis:
+  #mapper配置文件,扫描xml文件
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.ao666.community_background.pojo.entity
+  configuration:
+    #开启驼峰命名
+    map-underscore-to-camel-case: true
+
+logging:
+  level:
+    com:
+      sky:
+        mapper: debug
+        service: info
+        controller: info
+
+community:
+  jwt:
+    # 设置jwt签名加密时使用的秘钥
+    admin-secret-key: ao666
+    # 设置jwt过期时间
+    admin-ttl: 7200000
+    # 设置前端传递过来的令牌名称
+    admin-token-name: token
+    # 设置jwt签名加密时使用的秘钥
+    user-secret-key: user
+    # 设置jwt过期时间
+    user-ttl: 7200000
+    # 设置前端传递过来的令牌名称
+    user-token-name: token
+  alioss:
+    endpoint: ${sky.alioss.endpoint}
+    access-key-id: ${sky.alioss.access-key-id}
+    access-key-secret: ${sky.alioss.access-key-secret}
+    bucket-name: ${sky.alioss.bucket-name}
